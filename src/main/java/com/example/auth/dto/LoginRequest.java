@@ -1,12 +1,15 @@
 package com.example.auth.dto;
 
-import lombok.Getter;
-import lombok.Setter;
+import jakarta.validation.constraints.*;
+import lombok.Data;
 
-@Getter
-@Setter
+@Data
 public class LoginRequest {
 
+    @Email(message = "Invalid email")
+    @NotBlank(message = "Email is required")
     private String email;
+
+    @NotBlank(message = "Password is required")
     private String password;
 }
